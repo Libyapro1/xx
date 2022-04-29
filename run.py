@@ -361,5 +361,4 @@ if __name__ == '__main__':
 		python="2.7" if "2.7" in sys.version[0:2] else "2.8"
 	else:
 		______LuWibu______(" \033[0;97m[\033[0;91m!\033[0;97m] How To Usage : python run.py")
-	______SAYANGKAMU______("git pull")
 	___RecodeSampah__()
