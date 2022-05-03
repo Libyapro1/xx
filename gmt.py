@@ -886,7 +886,6 @@ def cek_apk(coki):
 
 
 if __name__ == '__main__':
-   os.system('git pull')
    menu().main()
    folder()
 
